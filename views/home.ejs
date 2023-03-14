@@ -1,0 +1,25 @@
+<%- include ('partials/header') %>
+    <h1>HOME</h1>
+
+    <p>
+        <%= homeStartingContent %>
+    </p>
+
+    <%displayPosts.forEach(function(post){ %>
+        <h1>
+            <%= (post.composedTitle)%>
+        </h1>
+        <p>
+            <% var body=post.composedPost%>
+                <% function truncate(str ,limit){ if(str<=limit){ return str } else{ return str.slice(0,limit) + "..." }
+                    }%>
+                    <%= truncate(body,500)%>
+                        <a href="/posts/<%=post.composedTitle%>">read more</a>
+
+        </p>
+
+        <% })%>
+
+
+
+            <%- include ('partials/footer') %>
