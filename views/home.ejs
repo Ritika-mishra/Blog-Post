@@ -5,6 +5,7 @@
         <%= homeStartingContent %>
     </p>
 
+
     <%displayPosts.forEach(function(post){ %>
         <h1>
             <%= (post.composedTitle)%>
@@ -13,12 +14,17 @@
             <% var body=post.composedPost%>
                 <% function truncate(str ,limit){ if(str<=limit){ return str } else{ return str.slice(0,limit) + "..." }
                     }%>
-                    <%= truncate(body,500)%>
+                    
+                    <%= truncate(body,50)%>
                         <a href="/posts/<%=post.composedTitle%>">read more</a>
 
         </p>
 
         <% })%>
+
+        <form action="/" method="post">
+            <button type="submit" class="btn btn-primary">+ COMPOSE</button>
+    </form>
 
 
 
